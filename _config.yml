@@ -61,8 +61,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "P. Orzechowski"
-  bio    : "I once wrote a code that compiled on the first try."
+  bio    : "Maybe one day I will add some"
   links:
     - label: "Email"
       icon: "fa fa-envelope"
