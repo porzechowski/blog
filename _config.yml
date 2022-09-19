@@ -14,7 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Log dump
-subtitle: "Dumping my poorly written notes"
+subtitle: "Dumping my poorly written notes about software and related stuff."
+description: "Collection of short notes about C, C++, software maybe even hardware."
 email: piotrek.orzechowski@gmail
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -22,8 +23,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 url: "https://porzechowski.github.io"
 baseurl: "/blog"
-twitter_username: username
-github_username: username
+twitter_username: "https://twitter.com/MyLogDump"
+github_username: porzechowski
 minimal_mistakes_skin: default
 search: true
 
@@ -61,7 +62,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  bio    : "Maybe one day I will add some"
+  bio    : ""
   links:
     - label: "Email"
       icon: "fa fa-envelope"
@@ -107,6 +108,14 @@ defaults:
       layout: single
       author_profile: true
 
+og_image: /assets/images/snipp.png
+
+social:
+  type: Person
+  name: Piotr Orzechowski
+  links:
+    - "https://twitter.com/MyLogDump"
+    
 category_archive:
   type: liquid
   path: /categories/
