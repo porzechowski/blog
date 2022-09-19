@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Log dump
-subtitle: "Dumping my poorly written notes about software and related stuff."
+subtitle: "Dumping my poorly written notes about software and stuff."
 description: "Collection of short notes about C, C++, software maybe even hardware."
 email: piotrek.orzechowski@gmail
 description: >- # this means to ignore newlines until "baseurl:"
