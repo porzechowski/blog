@@ -10,9 +10,10 @@ tags:
   - max depth
   - cognitive complexity
 toc: true
-toc_label: "My Table of Contents"
+toc_label: "Table of Contents"
 toc_icon: "cog"
 ---
+
 # You can't control what you can't measure. Short overview of code metrics.
 
 ## What are code metrics?
