@@ -19,15 +19,13 @@ toc_icon: "cog"
 
 # How do we go from source code to binary file?
 
-There are few stages that need to happen to get from our C/C++ source code to running program.
-
-Let's cut straight to the chase!
+There are few stages that need to happen to turn our C/C++ source code to the running program.
 
 # Preprocessing
 
-First thing that happen is a stage called ***preprocessing*** which is performed by a preprocessor, which resolves all ***preprocessor directives*** (they begin with a `#`).
-This happens line after line in a, source file after source file.
-We can divide them in the following way:
+First thing that happen is a stage called ***preprocessing*** which is performed by a... preprocessor, which resolves ***preprocessor directives*** (they begin with a `#`).
+This happens line after line in each source file.
+***preprocessor directives*** can be divided in the following way:
 
 - Directives like `#includes`, `#defines` or `#line` or are replaced with a corresponding content.
 
