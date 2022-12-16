@@ -1,6 +1,6 @@
 ---
 title: "Be careful with bool in C"
-date: 2022-16-12
+date: 2022-12-16
 categories:
   - blog
   - software
