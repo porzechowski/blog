@@ -149,30 +149,4 @@ Still far from perfect.
 
 However the MSVC compilers seems to handle this correctly.
 
-# Solution
-
-One thing that comes to mind is to replace *bool* with variable like *uint8_t* and declare *true* and *false* on our own.
-
-So our code would look like this:
-```C
-#include "stdio.h"
-#include "string.h"
-#include "stdint.h"
-
-const uint8_t false_value = 0U;
-const uint8_t true_value = 0U;
-
-int main() {
-
-    uint8_t var = false_value;
-    memset(&var, 0x1, sizeof(var));
-
-    if (true_value == var) {
-        printf("true! \n");
-    }
-
-    if (false_value == var) {
-        printf("false! \n");
-    }
-}
 ```
