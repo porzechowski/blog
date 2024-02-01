@@ -75,10 +75,10 @@ footer:
   links:
     - label: "Email"
       icon: "fa fa-envelope"
-      url: "mailto:piotre.orzechowski@gmail.com"
+      url: "mailto:TODO"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/MyLogDump"
+      url: "TODO"
 
 analytics:
   provider: "google-gtag"
@@ -114,7 +114,7 @@ social:
   type: Person
   name: Piotr Orzechowski
   links:
-    - "https://twitter.com/MyLogDump"
+    - "TODO"
     
 category_archive:
   type: liquid
