@@ -51,7 +51,7 @@ This means we can bypass the code that checks whether we should become an admin.
 
 The whole idea looks like this:
 
-![Alt Text](/assets/images/fault_injection/the_idea.gif)
+![The idea](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/the_idea.gif?raw=true)
 
 ## Glitch sources
 
@@ -85,15 +85,16 @@ Faults don't have to be just HW they can also be SW, an example of this is the R
 Two most basic glitches are clock and voltage.
 The idea looks like this:
 
-![](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/basic_glitches.gif?raw=true)
+![glitch basic](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/basic_glitches.gif?raw=true)
 
 If we introduce an extra clock edge, the CPU might not be able to complete operations from the previous one, and hopefully do something unexpected.
 
 Another simple technique is voltage glitch. We usually try to lower the voltage on the core.
 Circuits rely on a stable voltage level to operate correctly. The voltage determines the speed at which transistors within the core can switch states from on to off. When voltage drops too low, the transistors may not switch states as intended, leading to computational errors or delays.
 
-![Alt Text](/assets/images/fault_injection/glitch_vdd_h.png)
-![Alt Text](/assets/images/fault_injection/glitch_vdd_w.png)
+![glitch vdd w](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/glitch_vdd_w.png?raw=true)
+![glitch vdd h](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/glitch_vdd_h.png?raw=true)
+
 
 Glitching allows us to bring the system into the 'undefined zone'.
 Depending on the type of glitch we will have a variable number of glitch parameters. Here we see that a voltage one has 2 parameters, the height of the pulse and the width of this pulse. 
@@ -116,4 +117,8 @@ In practise, if 1 out of 100 tests returned with modified response we consider i
 On the left side, we see another very important parameter that is common to most attacks, i.e. the attack time or delay. It is usually counted since some significant observable event, like a device reset.
 Here, it is shown in CPU cycles, but it also can be micoseconds. Interestingly, this graph shows that, in this case, **the pulse width is less important than the attack time**. 
 
-![Alt Text](/assets/images/fault_injection/schmoo.png)
+![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/schmoo.png?raw=true)
+
+
+
+# Bibliography
