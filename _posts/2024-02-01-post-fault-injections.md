@@ -1,5 +1,5 @@
 ---
-title: "Compilation stages"
+title: "Hardware fault injections"
 date: 2024-02-01
 categories:
   - blog
