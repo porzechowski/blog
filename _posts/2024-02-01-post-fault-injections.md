@@ -85,8 +85,7 @@ Faults don't have to be just HW they can also be SW, an example of this is the R
 Two most basic glitches are clock and voltage.
 The idea looks like this:
 
-![Alt Text](/assets/images/fault_injection/basic_glitches.gif)
-![Alt Text](assets/images/fault_injection/basic_glitches.gif)
+![](/assets/images/fault_injection/basic_glitches.gif)
 
 If we introduce an extra clock edge, the CPU might not be able to complete operations from the previous one, and hopefully do something unexpected.
 
