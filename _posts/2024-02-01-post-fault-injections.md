@@ -132,7 +132,7 @@ And this propagates to the Instruction level – wrong opcodes.[[2]](#Bibliograp
 
 ![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/threat_model.png?raw=true)
 
-# Glitching results [[1]](#Bibliography_item_1).
+# Glitching results [^2].
 
 - **Bit flip** - is the change of the bit value to the opposite value, while this bit can be precisely selected by the attacker. A multiple bit flips also fall within in this category as long as all the target bits are selected by the attacker. For example, most of the fault attacks on neural networks utilize this model. Bit flip in memory load instruction will have different effects than bitflip during execution. Wrong instruction vs wrong address. 
 - **Bit set/reset** is the change of the bit value either to ‘1’ (set) or to ‘0’ (reset). Again, the assumption is that the attacker can select the bit to be set/reset. This fault model is very powerful and can be utilized for example for blind fault attacks 
@@ -157,7 +157,6 @@ There are many things we could glitch but we will discuss two easiest ones.
 
 # Bibliography
 
-<a name="Bibliography_item_1"></a>
-1. J. Breier and X. Hou, "How Practical Are Fault Injection Attacks, Really?," in IEEE Access, vol. 10, pp. 113122-113130, 2022, doi: 10.1109/ACCESS.2022.3217212.
-<a name="Bibliography_item_2"></a>
-2. Yuce, Bilgiday & Schaumont, Patrick & Witteman, Marc. (2018). Fault Attacks on Secure Embedded Software: Threats, Design, and Evaluation. Journal of Hardware and Systems Security. 2. 10.1007/s41635-018-0038-1. 
+[^1]: Yuce, Bilgiday & Schaumont, Patrick & Witteman, Marc. (2018). Fault Attacks on Secure Embedded Software: Threats, Design, and Evaluation. Journal of Hardware and Systems Security. 2. 10.1007/s41635-018-0038-1.   
+[^2]: J. Breier and X. Hou, "How Practical Are Fault Injection Attacks, Really?," in IEEE Access, vol. 10, pp. 113122-113130, 2022, doi: 10.1109/ACCESS.2022.3217212.
+
