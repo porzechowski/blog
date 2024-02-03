@@ -18,6 +18,7 @@ toc_icon: "cog"
 # Breaking software with hardware
 
 This is probably first post in a series about hardware/software security.
+It covers basics idea behind fault injection and shows how can it be used.
 
 ## Problem
 
@@ -122,7 +123,7 @@ Here, it is shown in CPU cycles, but it also can be microseconds. Interestingly,
 
 ![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/schmoo.png?raw=true)
 
-# Threat model
+## Threat model
 
 It all starts with changing the operating conditions of the system.
 We change the power supply, temperature, or electro-magnetic field.
@@ -132,7 +133,7 @@ And this propagates to the Instruction level – wrong opcodes.
 
 ![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/threat_model.png?raw=true) [^1]
 
-# Glitching results
+## Glitching results[^2]
 
 - **Bit flip** - is the change of the bit value to the opposite value, while this bit can be precisely selected by the attacker. A multiple bit flips also fall within in this category as long as all the target bits are selected by the attacker. For example, most of the fault attacks on neural networks utilize this model. Bit flip in memory load instruction will have different effects than bitflip during execution. Wrong instruction vs wrong address,
 - **Bit set/reset** is the change of the bit value either to ‘1’ (set) or to ‘0’ (reset). Again, the assumption is that the attacker can select the bit to be set/reset. This fault model is very powerful and can be utilized for example for blind fault attacks,
@@ -143,7 +144,7 @@ And this propagates to the Instruction level – wrong opcodes.
 - **Reset**,
 - **Bricking the device.**
 
-# Becomin the admin
+## Becoming the admin
 
 Ok so how can we become the admin?
 
@@ -152,19 +153,18 @@ There are many things we could glitch but we will discuss two easiest ones.
 1. First We could alter the memory of ```isAdmin``` variable. If we flip the bit from ```0``` to ```1``` we will become the admin.
    
 > [Check out this article about bool in C](https://porzechowski.github.io/blog/blog/software/post-c-bool/)
+
 2. We could try to glitch the ```if``` statement, using EM or voltage glitch. As a result we expect our instruction to mutate or being skipped.
 
 ![attack](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/attack.png?raw=true)
 
-#The end
+# The end
 
 Ok so this is the simple idea behind fault injections attacks.
 If something is not clear please let me know I will do my best to fix this :)
 
 There will be probably next post soon explaining defense techniques and other aspects of hardware security.
 
-# Bibliography
-
 [^1]: Yuce, Bilgiday & Schaumont, Patrick & Witteman, Marc. (2018). Fault Attacks on Secure Embedded Software: Threats, Design, and Evaluation. Journal of Hardware and Systems Security. 2. 10.1007/s41635-018-0038-1.   
-
 [^2]: J. Breier and X. Hou, "How Practical Are Fault Injection Attacks, Really?," in IEEE Access, vol. 10, pp. 113122-113130, 2022, doi: 10.1109/ACCESS.2022.3217212.
+
