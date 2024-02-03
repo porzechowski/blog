@@ -36,7 +36,7 @@ if (isAdmin == true) {
 	   //do important admin stuff
 }
 ```
-Here we have a very simple snippet of the programme. There is some sort of ```CheckIfAdmin``` function that verifies whether we should be given administrator privileges. 
+Here we have a very simple snippet of the programme. There is a ```CheckIfAdmin``` function that verifies whether we should be given administrator privileges. 
 The problem is that we are not an administrator, and have no right to become one, so this function will ALWAYS verify us negatively. 
 For simplicity's sake, we'll assume that the ```CheckIfAdmin``` function was written by a very competent person, so we're not able to fool it software-wise.
 But don't worry, this doesn't derail our dreams of becoming an admin. There is hope, and that hope is to provoke the hardware to do something unexpected... to behave in an unexpected way.
@@ -58,8 +58,8 @@ The whole idea looks like this:
 ## Glitch sources
 
 Here we see the most common ways of a fault injection attacks.
-We see that we can tamper with many things, clock, voltage, EM field, temperature, light…. We can we really creative here.
-Some of these attacks require a certain amount of preparation or circuit interference. So we say that some are invasive and other are non-invasive. For the voltage glitch, we usually remove a couple of capacitors, from the power supply path. 
+We see that we can tamper with many things, clock, voltage, EM field, temperature, light…. We can we creative here.
+Some of these attacks require a certain amount of preparation or circuit interference. So, we say that some are invasive and other are non-invasive. For the voltage glitch, we usually remove a couple of capacitors, from the power supply path. 
 If, on the other hand, we want to attack with a laser, it is a good idea to get rid of the outer part of the chip, in practice it can be filed down or etched with acid.
 
 Faults don't have to be just HW they can also be SW, an example of this is the Rowhammer attack, which is an attack on DRAM. 
@@ -102,7 +102,7 @@ On the other hand, between 0 or 0.9 V it won't work for us. But we will probably
 
 ![glitch vdd w](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/glitch_vdd_w.png?raw=true)
 
-We can do the same with the width. If we take the voltage away for 10us our core will probably not notice it, if we switch it off for a second something will probably happen. 
+We can do the same with the width. If we take the voltage away for about 10us our core probably won't notice it. However, if we switch it off for a second we will probably switch it off. 
 But what will happen in between these values? For voltage this is what our search area for the right glitch parameters will look like.
 
 ![glitch vdd h](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/glitch_vdd_h.png?raw=true)
@@ -118,7 +118,7 @@ If the result is correct, we are in a green zone, if there is no response are pr
 Usually, we repeat the test for fixed parameters many times.
 In practise, if 1 out of 100 tests returned with modified response we consider it to be a high reproducibility rate.
 On the left side, we see another very important parameter that is common to most attacks, i.e. the attack time or delay. It is usually counted since some significant observable event, like a device reset.
-Here, it is shown in CPU cycles, but it also can be micoseconds. Interestingly, this graph shows that, in this case, **the pulse width is less important than the attack time**. 
+Here, it is shown in CPU cycles, but it also can be microseconds. Interestingly, this graph shows that, in this case, **the pulse width is less important than the attack time**. 
 
 ![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/schmoo.png?raw=true)
 
@@ -128,22 +128,22 @@ It all starts with changing the operating conditions of the system.
 We change the power supply, temperature, or electro-magnetic field.
 This in turn causes changes at the circuit level, interfering with timing, voltage levels the operating thresholds are not met.
 This leads to errors in uArchitecture – instruction execution is wrong.
-And this propagates to the Instruction level – wrong opcodes.[[2]](#Bibliography_item_2)
+And this propagates to the Instruction level – wrong opcodes.
 
-![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/threat_model.png?raw=true)
+![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/threat_model.png?raw=true) [^1]
 
-# Glitching results [^2].
+# Glitching results
 
-- **Bit flip** - is the change of the bit value to the opposite value, while this bit can be precisely selected by the attacker. A multiple bit flips also fall within in this category as long as all the target bits are selected by the attacker. For example, most of the fault attacks on neural networks utilize this model. Bit flip in memory load instruction will have different effects than bitflip during execution. Wrong instruction vs wrong address. 
-- **Bit set/reset** is the change of the bit value either to ‘1’ (set) or to ‘0’ (reset). Again, the assumption is that the attacker can select the bit to be set/reset. This fault model is very powerful and can be utilized for example for blind fault attacks 
-- **Random byte** is a less precise fault model where a value of a particular byte changes to some random value. This is considered to be the most relaxed fault model to achieve a successful DFA
-- **Instruction skip** practically ignores the execution of the currently processed instruction. Powerful attacks can be introduced by using this fault model, such as privilege escalation, a simple key extraction, or a neural network misclassification.
-- **Execution faults** occur in FPGAs where the values being processed are affected by setup violations. For example, physically unclonable functions can be attacked with this fault model 
-- **Stuck-at faults** permanently changes the value of the stored data into some other value. SIFA can be used with this fault model, and also, true random number generators (TRNGs) can be biased by using stuck-at faults.
+- **Bit flip** - is the change of the bit value to the opposite value, while this bit can be precisely selected by the attacker. A multiple bit flips also fall within in this category as long as all the target bits are selected by the attacker. For example, most of the fault attacks on neural networks utilize this model. Bit flip in memory load instruction will have different effects than bitflip during execution. Wrong instruction vs wrong address,
+- **Bit set/reset** is the change of the bit value either to ‘1’ (set) or to ‘0’ (reset). Again, the assumption is that the attacker can select the bit to be set/reset. This fault model is very powerful and can be utilized for example for blind fault attacks,
+- **Random byte** is a less precise fault model where a value of a particular byte changes to some random value. This is considered to be the most relaxed fault model to achieve a successful DFA,
+- **Instruction skip** practically ignores the execution of the currently processed instruction. Powerful attacks can be introduced by using this fault model, such as privilege escalation, a simple key extraction, or a neural network misclassification,
+- **Execution faults** occur in FPGAs where the values being processed are affected by setup violations. For example, physically unclonable functions can be attacked with this fault model, 
+- **Stuck-at faults** permanently changes the value of the stored data into some other value. SIFA can be used with this fault model, and also, true random number generators (TRNGs) can be biased by using stuck-at faults,
 - **Reset**,
-- **Bricking the device**
+- **Bricking the device.**
 
-# Becomin an admin
+# Becomin the admin
 
 Ok so how can we become the admin?
 
@@ -151,12 +151,20 @@ There are many things we could glitch but we will discuss two easiest ones.
 
 1. First We could alter the memory of ```isAdmin``` variable. If we flip the bit from ```0``` to ```1``` we will become the admin.
    
+> [Check out this article about bool in C](https://porzechowski.github.io/blog/blog/software/post-c-bool/)
 2. We could try to glitch the ```if``` statement, using EM or voltage glitch. As a result we expect our instruction to mutate or being skipped.
 
 ![attack](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/attack.png?raw=true)
 
+#The end
+
+Ok so this is the simple idea behind fault injections attacks.
+If something is not clear please let me know I will do my best to fix this :)
+
+There will be probably next post soon explaining defense techniques and other aspects of hardware security.
+
 # Bibliography
 
 [^1]: Yuce, Bilgiday & Schaumont, Patrick & Witteman, Marc. (2018). Fault Attacks on Secure Embedded Software: Threats, Design, and Evaluation. Journal of Hardware and Systems Security. 2. 10.1007/s41635-018-0038-1.   
-[^2]: J. Breier and X. Hou, "How Practical Are Fault Injection Attacks, Really?," in IEEE Access, vol. 10, pp. 113122-113130, 2022, doi: 10.1109/ACCESS.2022.3217212.
 
+[^2]: J. Breier and X. Hou, "How Practical Are Fault Injection Attacks, Really?," in IEEE Access, vol. 10, pp. 113122-113130, 2022, doi: 10.1109/ACCESS.2022.3217212.
