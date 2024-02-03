@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Humble Embedded Log
-subtitle: "Dumping my poorly written notes about software and stuff."
+subtitle: "Poorly written notes about software and stuff... enjoy!"
 description: "Collection of short notes about C, C++, software and sometimes hardware."
 
 email: piotrek.orzechowski@gmail.com
@@ -69,7 +69,7 @@ author:
   links:
     - label: "Email"
       icon: "fa fa-envelope"
-      url: "mailto: TODO"
+      url: "mailto:piotrek.orzechowski@gmail.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "TODO"
