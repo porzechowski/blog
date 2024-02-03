@@ -81,12 +81,6 @@ footer:
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       url: "TODO"
-
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "G-6Z25SKFDM8"
-    anonymize_ip: true # default
     
 defaults:
   # _posts
