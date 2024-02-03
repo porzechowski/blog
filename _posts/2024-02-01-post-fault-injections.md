@@ -133,7 +133,7 @@ And this propagates to the Instruction level – wrong opcodes.
 
 ![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/threat_model.png?raw=true) [^1]
 
-## Glitching results [^2]
+## Glitching results
 
 - **Bit flip** - is the change of the bit value to the opposite value, while this bit can be precisely selected by the attacker. A multiple bit flips also fall within in this category as long as all the target bits are selected by the attacker. For example, most of the fault attacks on neural networks utilize this model. Bit flip in memory load instruction will have different effects than bitflip during execution. Wrong instruction vs wrong address,
 - **Bit set/reset** is the change of the bit value either to ‘1’ (set) or to ‘0’ (reset). Again, the assumption is that the attacker can select the bit to be set/reset. This fault model is very powerful and can be utilized for example for blind fault attacks,
@@ -143,6 +143,7 @@ And this propagates to the Instruction level – wrong opcodes.
 - **Stuck-at faults** permanently changes the value of the stored data into some other value. SIFA can be used with this fault model, and also, true random number generators (TRNGs) can be biased by using stuck-at faults,
 - **Reset**,
 - **Bricking the device.**
+[^2]
 
 ## Why would it even work?
 
