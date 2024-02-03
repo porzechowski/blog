@@ -17,8 +17,8 @@ toc_icon: "cog"
 
 # Breaking software with hardware
 
-This is probably first post in a series about hardware/software security.
-It covers basics idea behind fault injection and shows how can it be used.
+This is the first post in a series about hardware and software security.
+It covers basic ideas behind fault injections and shows how can it be used.
 
 ## Problem
 
