@@ -133,7 +133,7 @@ And this propagates to the Instruction level – wrong opcodes.
 
 ![schmoo](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/threat_model.png?raw=true) [^1]
 
-## Glitching results[^2]
+## Glitching results [^2]
 
 - **Bit flip** - is the change of the bit value to the opposite value, while this bit can be precisely selected by the attacker. A multiple bit flips also fall within in this category as long as all the target bits are selected by the attacker. For example, most of the fault attacks on neural networks utilize this model. Bit flip in memory load instruction will have different effects than bitflip during execution. Wrong instruction vs wrong address,
 - **Bit set/reset** is the change of the bit value either to ‘1’ (set) or to ‘0’ (reset). Again, the assumption is that the attacker can select the bit to be set/reset. This fault model is very powerful and can be utilized for example for blind fault attacks,
