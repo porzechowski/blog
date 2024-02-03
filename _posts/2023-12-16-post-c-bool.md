@@ -1,6 +1,6 @@
 ---
 title: "Funny behavior of bool in C"
-date: 2022-12-16
+date: 2023-12-16
 categories:
   - blog
   - software

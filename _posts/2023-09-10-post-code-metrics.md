@@ -1,6 +1,6 @@
 ---
 title: "Code metrics"
-date: 2022-09-10
+date: 2023-09-10
 categories:
   - blog
   - software

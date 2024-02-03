@@ -1,6 +1,6 @@
 ---
 title: "Compilation stages"
-date: 2022-09-13
+date: 2023-09-13
 categories:
   - blog
   - software
