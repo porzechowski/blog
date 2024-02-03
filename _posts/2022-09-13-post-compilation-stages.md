@@ -16,7 +16,7 @@ toc: true
 toc_label: "Table of Contents"
 toc_icon: "cog"
 ---
-
+![UC](https://github.com/porzechowski/blog/blob/master/assets/images/under_construction.png?raw=true)
 # How do we go from source code to binary file?
 
 There are few stages that need to happen to turn our C/C++ source code to the running program.
