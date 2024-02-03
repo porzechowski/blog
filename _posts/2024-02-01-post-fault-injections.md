@@ -144,6 +144,31 @@ And this propagates to the Instruction level – wrong opcodes.
 - **Reset**,
 - **Bricking the device.**
 
+## Why would it even work?
+
+Now, let's take crash course in assembly language and machine code. This will help us understand the issues discussed.
+
+To explain this, let's imagine very simple processor, with some memory and an accumulator.
+
+The Accumulator is a kind of a working storage used to store the intermediate results of arithmetic operations.
+
+Our processor can only do 3 following things:
+
+1. NOP - do nothing,
+2. LDA - load something from memory to an accumulator,
+3. ADD - add something to the value in an accumulator.
+   
+Each of these instructions has its own unique code – 00, 01, 02.
+
+![CPU](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/CPU.png?raw=true)
+
+If we want to load something into the accumulator from address no. 5 in memory, we will issue the command: **LDA 05** in binary that's **0001 0101**
+
+Note that depending on where our bit-flip occurs, we can either change the instruction or the address.
+This means that the attacker can hypothetically write or read something in a place in memory where theoretically he should not, or change the operation being performed.
+
+![attack](https://github.com/porzechowski/blog/blob/master/assets/images/fault_injection/machine_code.png?raw=true)
+
 ## Becoming the admin
 
 Ok so how can we become the admin?
