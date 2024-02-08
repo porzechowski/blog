@@ -41,7 +41,7 @@ There are many techniques that can be used to harden our software against fault 
 - check after write
 - MPUs
 - attack handler
-- compiler optimalization
+- compiler optimization
 
 ## Redundancy
 
@@ -115,8 +115,8 @@ And use it around critical parts of our code.
 
 ## Random Duration Delays
 
-Sometimes however, we want to make sure that certain parts of our code have constant execution time to prevent side-channel attacks. For details about this attack check [this.](https://media.defcon.org/DEF%20CON%2024/DEF%20CON%2024%20presentations/DEF%20CON%2024%20-%20Plore-Side-Channel-Attacks-On-High-Security-Electronic-Safe-Locks.pdf
-)
+Sometimes however, we want to make sure that certain parts of our code have constant execution time to prevent side-channel attacks. For details about this attack check this: [^1]
+
 
 So what we want to do is to replace password checking function that usually looks like this:
 ```c
@@ -220,7 +220,7 @@ This is the reason we all our constants should have high hamming distance.
 
 ## Do not aggregate checks
 
-Sometimes we introduce nice redundancy to our checks, however we aggregate them later, so you still need just a single glitch, only a bit later.
+Sometimes we introduce redundancy to our checks, but we aggregate them later, so attacker still needs just a single glitch, only a bit later.
 
 So instead of this:
 ```c
@@ -270,18 +270,21 @@ Since
 
 # The end
 
-All remedies require additional resources. You should not become paranoid and protect everything. We only protect system elements that are crucial require protection.
+All remedies require additional resources. You should not become paranoid and protect everything. We only protect system elements that are crucial and require protection.
 
-From the attacker’s perspective, overcoming a particular countermeasure is a matter of resources. 
-So all we do it
-
-It's a good idea to start with a "cost-benefit analysis", in short: the potential cost to the attacker should be much higher than the potential gain from the attack.
+**From the attacker’s perspective, overcoming a particular countermeasure is a matter of resources.** 
+So when thinking about security of out app it's a good idea to start with a "cost-benefit analysis". In short: **the potential cost to the attacker should be much higher than the potential gain from the attack.**
 This discourages attackers from attempting attacks because the risks and costs associated with an attack do not outweigh the potential benefits.
 
+You should also be aware that, best results are obtained when we use software **and** hardware countermeasures. I may describe hardware countermeasures in following year.. or ten :)
+Stay safe!!
 
+## Other resources
+1. Good talk about defending software [^2] 
+2. Worth reading series of posts [^3]
 
+[^1]: https://media.defcon.org/DEF%20CON%2024/DEF%20CON%2024%20presentations/DEF%20CON%2024%20-%20Plore-Side-Channel-Attacks-On-High-Security-Electronic-Safe-Locks.pdf
 
-[^1]: https://youtu.be/2F6HDJ1veXY?si=sNT4sWg69Be2JU6_  
-[^2]: https://research.nccgroup.com/2021/07/08/software-based-fault-injection-countermeasures-part-2-3/
-[^3]: https://media.defcon.org/DEF%20CON%2024/DEF%20CON%2024%20presentations/DEF%20CON%2024%20-%20Plore-Side-Channel-Attacks-On-High-Security-Electronic-Safe-Locks.pdf
+[^2]: https://youtu.be/2F6HDJ1veXY?si=sNT4sWg69Be2JU6_
 
+[^3]: https://research.nccgroup.com/2021/07/07/an-introduction-to-fault-injection-part-1-3/
