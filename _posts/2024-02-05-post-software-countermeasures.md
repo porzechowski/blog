@@ -1,5 +1,5 @@
 ---
-title: "software countermeasures"
+title: "Software countermeasures"
 date: 2024-02-05
 categories:
   - blog
