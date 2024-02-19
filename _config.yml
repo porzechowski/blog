@@ -125,3 +125,11 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+<script src="https://utteranc.es/client.js"
+        repo="https://github.com/porzechowski/blog"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
