@@ -29,6 +29,8 @@ github_username: porzechowski
 minimal_mistakes_skin: default
 search: true
 
+repository: "porzechowski/blog" 
+
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
@@ -125,3 +127,42 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+comments:
+  provider: "giscus"
+  giscus:
+    repo                 : "porzechowski/blog"
+    repo_id              : "R_kgDOH-KWFA"
+    category_name        : "Announcements"
+    category_id          : "DIC_kwDOH-KWFM4CdWhJ"
+    discussion_term      : "pathname" # "pathname" (default), "url", "title", "og:title"
+    reactions_enabled    : '1' # '1' for enabled (default), '0' for disabled
+    theme                : "light" # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
+
+# <script src="https://giscus.app/client.js"
+#         data-repo="porzechowski/blog"
+#         data-repo-id="R_kgDOH-KWFA"
+#         data-category="Announcements"
+#         data-category-id="DIC_kwDOH-KWFM4CdWhJ"
+#         data-mapping="pathname"
+#         data-strict="0"
+#         data-reactions-enabled="1"
+#         data-emit-metadata="0"
+#         data-input-position="bottom"
+#         data-theme="preferred_color_scheme"
+#         data-lang="en"
+#         crossorigin="anonymous"
+#         async>
+# </script>
+# ,
+# comments:
+#   provider: "giscus"
+#   giscus:
+#     repo:                "anotherlab/anotherlab.github.io"
+#     repo-id:             "R_kgDOGhtM_w"
+#     category:            "Comments"
+#     category-id:         "DIC_kwDOGhtM_84CAZ93"
+#     mapping:             "pathname"
+#     reactions-enabled:    "1"
+#     theme:               "light"
+#     crossorigin:         "anonymous" 
