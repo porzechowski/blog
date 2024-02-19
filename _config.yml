@@ -154,15 +154,4 @@ comments:
 #         crossorigin="anonymous"
 #         async>
 # </script>
-# ,
-# comments:
-#   provider: "giscus"
-#   giscus:
-#     repo:                "anotherlab/anotherlab.github.io"
-#     repo-id:             "R_kgDOGhtM_w"
-#     category:            "Comments"
-#     category-id:         "DIC_kwDOGhtM_84CAZ93"
-#     mapping:             "pathname"
-#     reactions-enabled:    "1"
-#     theme:               "light"
-#     crossorigin:         "anonymous" 
+
