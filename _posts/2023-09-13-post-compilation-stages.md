@@ -57,3 +57,10 @@ Depending on target platform our executable file will have different format and 
 
 Full list can be found here: [List of executable files](https://en.wikipedia.org/wiki/Comparison_of_executable_file_formats)
 
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
