@@ -1,5 +1,5 @@
 ---
-title: "Defense programming"
+title: "Defense programming in embedded systems"
 date: 2024-02-13
 categories:
   - blog
@@ -10,6 +10,8 @@ tags:
   - C
   - C++
   - defense programming
+  - defense coding
+  - embedded
   - software
   - security
   - safety
@@ -21,31 +23,108 @@ toc_icon: "cog"
 
 # Defense programming is it what?
 
-The topic for today is defensive programming.
+The topic for today is Defensive Programming (DP).
 
-It is a set of techniques and guidelines that aims to reduce the number of bugs an errors in our code.
+DP is a set of techniques and guidelines that aims to reduce the number of problems you might encounter with our software.
+Bad things happen. The causes are different. We might do a typo, someone might pass a NULL pointer when he shouldn't, there might be a glitch in hardware or error in documentation.
 
-The defense programming has many faces. We might focus on security, safety
+Defensive programming aims to prevent and mitigate faults and errors that will arise sooner or later.
+As everything it comes with a cost, you will need to invest time and complexity of your code might increase.
 
-## yoda
-not all the code goes through full testing at all times: there is always an edge case.
+Defensive programming is a wide set, so I will probably miss few things
+Now let me describe some techniques that are relevant when talking about defensive programming for embedded systems.
 
-do agree 42 < $foo is harder to read than $foo > 42
+## Don't trust external code
 
-if (bCondition = NULL)  // typo here
-{
- // code never executes
+This is old and most of you know this one as check against `NULL` pointer. However we should expand this rule and say that anything handled to us by some external entity cannot be trusted and shall be verified before being used.
+
+The simplest example is good old
+```C 
+if(ptr != NULL)
+```
+
+However if we take something more complex like a frame, the same rule still applies.
+
+Consider following frame
+
+```C
+[Header | Content | CRC]
+```
+
+We mustn't touch `Header` or `Content` before we verify that CRC is correct. Sounds simple but saves a lot of trouble when we find out that CRC is incorrect in the middle of processing data from the frame.
+
+>TODO add another example
+
+## yoda conditions
+
+Agree you may not, but...
+
+This is one of the simplest and most common technique to prevent nasty bugs.
+
+Consider following code:
+
+```C
+if(ptr == NULL) {
+  //do something
 }
+```
+With a stupid programmer typo it is super easy to NULL a pointer with a small typo
 
-if (NULL = bCondition) //  error -> compiler complains
-{
- // ...
+```C
+if(ptr = NULL) {
+  //do something
 }
+```
 
+And here where Yoda comes to help. We will reverse items in `if` bracket, so when we make a typo now:
+
+```C
+if(NULL = ptr) {
+  //do something
+}
+```
+
+The compiler will come to the rescue, program will not compile and we will see similar message:
+
+`error: lvalue required as left operand of assignment`
+
+It also works fine with other constants like numbers or `const` variables. So if by mistake we do something like this:
+
+```C
+const bool isGood = true;
+if(isGood = false) {
+  //do something
+}
+```
+
+We shall see compiler message:
+
+`error: assignment of read-only variable`
+
+However, it get's a bit messy when dealing with numerical intervals. If we need our number to be between 10 and 20, we would normally write it like this:
+
+```C
+const int16_t number = 10;
+if((number > 10) && (number < 20)) {
+  //do something
+}
+```
+
+But with defensive approach we would write it this way:
+
+```C
+const int16_t number = 10;
+if((10 < number) && (20 > number)) {
+  //do something
+}
+```
+
+For me it is a bit more cognitively challenging... but IMHO it is worth it.
 
 
 ## MISRA
 
+MISRA and Defensive Programming has common techniques but are aiming for different things (? - zweryfikowac)
 ## C++
 
 While usually there is no difference between variable == value and value == variable, and in principle there shouldn't be, in C++ there sometimes can be a difference in the general case if operator overloading is involved. For example, although == is expected to be symmetric, someone could write a pathological implementation that isn't.
