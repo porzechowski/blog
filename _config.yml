@@ -74,7 +74,7 @@ author:
       url: "mailto:piotrek.orzechowski@gmail.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "TODO"
+      url: "https://twitter.com/p_orzech"
 
 footer:
   links:
@@ -83,7 +83,7 @@ footer:
       url: "mailto:piotrek.orzechowski@gmail.com"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "TODO"
+      url: "https://twitter.com/p_orzech"
 
 analytics:
   provider: "google-gtag"

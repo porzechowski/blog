@@ -3,7 +3,7 @@ permalink: /about/
 title: "Why me?"
 ---
 
-This blog serves as my digital diary, capturing thoughts, information, and notes on the topics that captivate me at the momen.
+This blog serves as my digital diary, capturing thoughts, information, and notes on the topics that captivate me at the moment.
 Whether it's delving into the intricacies of software or hardware, I'm eager to document my findings and insights here.
 
 While my memory might not be the best, I'm committed to preserving and sharing knowledge.
