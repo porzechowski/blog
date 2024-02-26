@@ -21,7 +21,7 @@ toc_label: "Table of Contents"
 toc_icon: "cog"
 ---
 
-# Defense programming is it what?
+# What is this thing?
 
 The topic for today is Defensive Programming (DP).
 
