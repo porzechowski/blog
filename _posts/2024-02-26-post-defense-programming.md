@@ -81,7 +81,7 @@ if(ptr == NULL) {
 ```
 With a stupid programmer typo it is super easy to NULL a pointer with a small typo
 
-```C
+```c
 if(ptr = NULL) {
   //do something
 }
@@ -89,7 +89,7 @@ if(ptr = NULL) {
 
 And here where Yoda comes to help. We will reverse items in `if` bracket, so when we make a typo now:
 
-```C
+```c
 if(NULL = ptr) {
   //do something
 }
@@ -101,7 +101,7 @@ The compiler will come to the rescue, program will not compile and we will see s
 
 It also works fine with other constants like numbers or `const` variables. So if by mistake we do something like this:
 
-```C
+```c
 const bool isGood = true;
 if(isGood = false) {
   //do something
@@ -114,7 +114,7 @@ We shall see compiler message:
 
 However, it get's a bit messy when dealing with numerical intervals. If we need our number to be between 10 and 20, we would normally write it like this:
 
-```C
+```c
 const int16_t number = 10;
 if((number > 10) && (number < 20)) {
   //do something
@@ -123,7 +123,7 @@ if((number > 10) && (number < 20)) {
 
 But with defensive approach we would write it this way:
 
-```C
+```c
 const int16_t number = 10;
 if((10 <= number) && (20 >= number)) {
   //do something
@@ -148,7 +148,7 @@ Software engineers borrowed this beautiful term to name a technique that allows 
 The idea is very simple.
 We place known values around a buffer. Let's say our canary value is 0xAA. All we do is to place this value around our buffer in memory:
 
-```C
+```c
 [0xAA, 0xAA, 0xAA | BUFFER | 0xAA, 0xAA, 0xAA]
 ```
 
@@ -156,7 +156,7 @@ Then we check the integrity of these values in some intervals.
 For example it could be another thread that evey 100ms checks if our canaries values didn't change.
 So if the thread detects following situation:
 
-```C
+```c
 [0xAA, 0xAA, 0xAA | BUFFER | 0x00, 0xAA, 0xAA]
 
 ```
@@ -166,14 +166,14 @@ So if the thread detects following situation:
 ## Be precise
 
 When in doubt
-```C
+```c
 if(true == boolVar)
 or
 if(false != boolVar)
 ```
 
 Always use 
-```C
+```c
 if(true == boolVar)
 ```
 
@@ -186,7 +186,7 @@ And instead of 0 or 1, variable memory can be equal to 2.
 
 For this one take a look at the following code:
 
-```C
+```c
 bool ValidateFrame(uint8_t command, uint32_t time) {
 
     if(4U >= command) {
@@ -207,7 +207,7 @@ But if by stupid typo accident we removed or modify one if statement, the functi
 
 So with single return policy, the function should look like this:
 
-```C
+```c
 bool ValidateFrame(const uint8_t command, const uint32_t time) {
     
     bool result = false;
