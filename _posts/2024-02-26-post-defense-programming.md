@@ -187,7 +187,8 @@ For this one take a look at the following code:
 
 ```C
 bool ValidateFrame(uint8_t command, uint32_t time) {
-    if((0U <= command) && (4U >= command)) {
+
+    if(4U >= command) {
         return false;
     }
 
@@ -202,6 +203,33 @@ bool ValidateFrame(uint8_t command, uint32_t time) {
 Function 'ValidateFrame' is trying to validate command and time - we don't care why.
 If any of the parameters is in the wrong boundary, function will return `false`.
 But if by stupid typo accident we removed or modify one if statement, the function might return 'true' instead of 'false'... I know this sounds far fetched and unlikely... but it happens.
+
+So with single return policy, the function should look like this:
+
+```C
+bool ValidateFrame(const uint8_t command, const uint32_t time) {
+    
+    bool result = false;
+    bool commandValid = false;
+    bool timeValid = false;
+
+    if(4U > command) {
+        commandValid = true;
+    }
+
+    if((time - previousTime) <= 100U){
+        timeValid = true;
+    }
+
+    if ((true == commandValid) && (true == timeValid)){
+        result = true;
+    }
+
+    return result;
+}
+```
+
+We needed more code, the complexity is higher, I believe it is worth it.
 
 I could also argue that single return statement improves readability and makes debugging easier.
 
