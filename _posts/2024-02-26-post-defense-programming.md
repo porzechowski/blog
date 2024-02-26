@@ -39,7 +39,8 @@ Now let me describe some techniques that are relevant when talking about defensi
 Fist one is old and most of you know are probably bored to death with hearing about it. The famous check against `NULL` pointer. However I want to expand this rule and say that anything handled to us by some external entity cannot be trusted and shall be verified before being used.
 
 The simplest example is good old
-```C 
+
+```c 
 if(ptr != NULL)
 ```
 
@@ -49,7 +50,7 @@ Also, if we take more complex input, like a frame, the same rule still applies.
 
 Consider following frame
 
-```C
+```c
 [Header | Content | CRC]
 ```
 
@@ -73,7 +74,7 @@ This is one of the simplest and most common technique to prevent nasty bugs.
 
 Consider following code:
 
-```C
+```c
 if(ptr == NULL) {
   //do something
 }
